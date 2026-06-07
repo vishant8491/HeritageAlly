@@ -1,0 +1,105 @@
+npm init -y
+npm i express
+npm i mongoose
+npm i dotenv
+
+
+// What is Multer : Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+                    It is written on top of busboy for maximum efficiency.
+
+                    npm i multer
+
+                    puri file mai select krne k liye  ctrl+shift+L
+                    sirf ek line mai select krne k liye baar baar press karo Ctrl+D
+                    line remove krne ke liye   ctrl+shift+k   or ctrl+X
+                    ctrl+alt+downKey
+
+
+// npm i password-validator    and     npm i bcrypt
+   both command written        npm i password-validator bcrypt
+   sent mail for reset password     npm i nodemailer
+
+
+// What is Json Webtoken   :  A JSON Web Token(JWT,pronounced"jot) is a secure compact, URL-safe standard(RFC 7519) used to transfer 
+                              information between two parties-typically a client (like a browser) and a server. It is primarily used 
+                              for authentication and authorization, allowing a server to verify user identity without storing session data(stateless).
+
+
+// Key Characteristics & Structure  :
+
+// Compact & Secure  :  Due to its small size, it can be sent through URLs, Post parameters, or HTTP headers.
+
+// Self-contained    :  The payload contains all required information about the user (e.g, username, userID, permission), 
+                        reducing the need to query a database repeatedly.
+
+// Structure         :  It consists of three parts seperated by dots(.).
+
+1.headers   :  Specific the algorithm used (e.g HMAC SHA256 or RSA).
+2.payload   :  Contains the "claims,"  which are statements about the entity (user) and additional data.
+3.Signature :  Ensures the token has been tampered with, generated using the encoded header,payload,and a secret key.
+
+
+// How it Works   :
+
+1. Login    :  The user sends credentials to the server.
+2. Creation :  The server creates a JWT signed with a secret key and and sends it back.
+3. Storage  :  The client stores the token (usually in local storage or cookies).
+4. request  :  For future requests, the client sends the JWT in the Authorization header.
+5. Verification:  The server verifies the signature.if valid, it allows the request without 
+                  needing to look up the session in a database.
+
+
+// Main Benefits  :  
+
+// Statelessness :   Perfect for microservices, as any server can verify the token without shared session state.
+// Security      :   Since it is signed, the data inside cannot be altered.
+// Performance   :   No database lookup is required for session verification.
+Note: While the data is signed, it is only encoded(Base64),not encrypted. Do not put sensitive information like passwords in the payload.
+
+
+// JSON WebToken Algorithms : A JSON Wen Token(JWT) algorithm is the cryptographic method used to sign a token to ensures 
+                              its integrity and authenticity. While the headers and payload of a JWT are publicly readable 
+                              (Base64URL encoded), the signature ensures that the data has not been tampered with.
+
+
+// Core Algorithm Types :  Algorithms are broadly categorized into two main groups based on how they handle keys.
+
+// Symmetric Algorithms (Shared Secret) :
+
+// How they work :   Both the issuer (server) and the verifier use the same secret key to sign and validate the token.
+// Most Common   :   HS256 (HMAC with SHA-256).
+// Best For      :   Internal services where the same party both creates and verifies the token.
+
+// Asymmetric Algorithms(Public/Private key Pair) :
+
+// How they work :   The issuer uses a private key to sign the token, while the verifier uses a corresponding public key to check the signature.
+// Most Common   :   RS256 (RSA with SHA-256 and ES256 (ECDS) with SHA-256).
+// Best For      :   Scenarios where the verifier should not have the ability to create tokens (e.g, third-party APIs or microservices).
+
+
+// Popular Algorithms in Use :   
+
+Algorithm         Full Name         Type           Description
+
+HS256             HMAC-SHA256       Symmetric      Fast and easy to implement,request 
+                                                   strong shared secret.
+
+RS256             RSA-SHA256        Asymmetric     Widely supported, uses standard RSA key pairs.
+
+ES256             ECDSA-P256-       Asymmetric     Offers similar security to RSA but 
+                  SHA256                           with much smaller key sizes.
+
+PS256             RSASSA-PSS-       Asymmetric     A more modern and mathmatically 
+                  SHA256                           robust version of RSA signing.
+
+none              none              Unsecured      Dangerous, Used for unsigned tokens,
+                                                   should be disabled in production.
+
+
+
+// Token :  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.
+            eyJkYXRhIjp7Il9pZCI6IjZhMGRlOGRlYmRmZjVlMjA2ODBjNTg4MyIsIm5hbWUiOiJWYW5zaCBQYWwiLCJ1c2VybmFtZSI6IlZhbnNoMTUzIiwiZW1haWwiOiJ2YW5zaDE1M0BnbWFpbC5jb20iLCJwaG9uZSI6IjYzOTcyMDUyODYiLCJwYXNzd29yZCI6IiQyYiQxMiRVTVMzMXVKdVp2QkFIREpuRVZqU3IuLmNsMlVjbU5NZ3FmSC96S2piMVNqMFVmdFlNeVZ5eSIsInJvbGUiOiJTdXBlciBBZG1pbiIsImFkZHJlc3MiOltdLCJzdGF0dXMiOnRydWUsIl9fdiI6MH0sImlhdCI6MTc3OTk0NjcxOH0.
+            49bViljcMtY7LutretadOLF1WeBISOtYASnwqexeXlk
+
+
+            Token have three parts 1.Algorithm 2.payload(data) 3.Signature
