@@ -6,7 +6,7 @@ const app = express()
 
 const corsOptions = {
     origin: function (origin, callback) {
-        const allowedOrigins = ["http://localhost:5173", "http://localhost:8000"]
+        const allowedOrigins = ["http://localhost:5173", "http://localhost:8000", "https://heritageally-gahe.onrender.com"]
 
         if(!origin || allowedOrigins.includes(origin)) {
             callback(null, true)
@@ -20,7 +20,14 @@ const corsOptions = {
 require("dotenv").config()
 require("./db-connect")
 
-app.use(cors(corsOptions))
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "http://localhost:8000",
+    "https://heritageally-gahe.onrender.com"
+  ],
+  credentials: true
+}))
 app.use(express.json())
 app.use("/public", express.static("./public"))
 app.use(express.static(path.join(__dirname, 'dist')))
