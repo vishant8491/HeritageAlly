@@ -108,15 +108,30 @@ Backend folder mein `.env` file banao:
 
 ```env
 PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-RAZORPAY_KEY_ID=your_razorpay_key_id
-RAZORPAY_KEY_SECRET=your_razorpay_key_secret
-SMTP_EMAIL=your_email@gmail.com
-SMTP_PASSWORD=your_email_app_password
-CLOUDINARY_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+# Database
+DB_KEY=your_mongodb_connection_string
+
+# Email Configuration
+MAILSENDER=your_email@gmail.com
+PASSWORD=your_email_app_password
+
+# Site Information
+SITE_NAME=HeritageAlly
+SITE_EMAIL=your_site_email
+SITE_PHONE=your_phone_number
+SITE_ADDRESS=your_address
+SITE_URL=your_site_url
+
+# JWT Keys
+JWT_OPEN_KEY=your_jwt_open_secret_key
+JWT_USER_KEY=your_jwt_user_secret_key
+
+# Cloudinary
+PUBLIC_TOKEN=your_jwt_public_token
+
+# Razorpay
+RPKEYID=your_razorpay_key_id
+RPSECRETKEY=your_razorpay_secret_key
 ```
 
 ### 5. Run the Application
@@ -192,7 +207,6 @@ All emails sent via **Nodemailer SMTP**
 
 Deployed on **Render** (free tier)
 
-> ⚠️ Note: First load may take ~30 seconds as server wakes from sleep mode
 
 ---
 
