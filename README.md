@@ -52,7 +52,6 @@ HeritageAlly is a full-featured E-Commerce web application built with the **MERN
 | Authentication | JWT Tokens |
 | Payment | Razorpay |
 | Email | Nodemailer (SMTP) |
-| Media Storage | Cloudinary |
 | Deployment | Render |
 
 ---
