@@ -175,16 +175,16 @@ All emails sent via **Nodemailer SMTP**
 ## 📸 Screenshots
 
 ### Homepage
-![Homepage](ecom/screenshots/homepage.png)
+![Homepage](server/screenshots/homepage.png)
 
 ### Shop Page
-![Shop](ecom/screenshots/shop.png)
+![Shop](server/screenshots/shop.png)
 
 ### Admin Dashboard
-![Admin](ecom/screenshots/admin.png)
+![Admin](server/screenshots/admin.png)
 
 ### Orders Panel
-![Orders](ecom/screenshots/orders.png)
+![Orders](server/screenshots/orders.png)
 
 ---
 
